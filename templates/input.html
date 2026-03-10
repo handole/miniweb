@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Input Form</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>📝 Input Form</h1>
+            <form id="input-form" action="/input-form" method="post">
+                <div class="form-group">
+                    <label>Nama</label>
+                    <input type="text" name="nama" required>
+                </div>
+                <div class="form-group">
+                    <label>Umur</label>
+                    <input type="number" name="umur" required>
+                </div>
+                <div class="form-group">
+                    <label>Alamat</label>
+                    <input type="text" name="alamat" required>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+
+            <div class="links">
+                <a href="/">🏠 Home</a>
+                <a href="/profile/Wayne">👤 Profile</a>
+                <a href="/about">ℹ️ About</a>
+            </div>
+        </div>
+    </div>
+<!-- Popup validation -->
+<div class="popup" id="popup">
+    <div class="popup-content">
+        <h2>✅ Data berhasil dikirim!</h2>
+        <button onclick="closePopup()">OK</button>
+    </div>
+</div>
+ <script>
+    document.getElementById("input-form").addEventListener("submit", function(event) {
+        event.preventDefault(); // cegah submit dulu
+        let valid = true;
+        let nama = document.getElementById("nama").value;
+        let umur = document.getElementById("umur").value;
+        let alamat = document.getElementById("alamat").value;
+
+        // Reset error
+        document.querySelectorAll(".error").forEach(e => e.innerText = "");
+
+        if(nama === "") {
+            document.getElementById("error-nama").innerText = "Nama wajib diisi!";
+            valid = false;
+        }
+
+        if(umur === "") {
+            document.getElementById("error-umur").innerText = "Umur wajib diisi!";
+            valid = false;
+        }
+
+        if(alamat === "") {
+            document.getElementById("error-alamat").innerText = "Alamat wajib diisi!";
+            valid = false;
+        }
+
+        if(valid) {     
+            document.getElementById("popup").style.display = "flex";
+            this.reset(); // kosongkan form
+        }
+    });
+
+    function closePopup() {
+        document.getElementById("popup").style.display = "none";
+    }
+ </script>
+
+</body>
+</html>

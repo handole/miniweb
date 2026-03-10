@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+</head>
+<body>
+    <h1>Mencari Luas dan Keliling</h1>
+    <form method="POST">
+        <label for="">Masukkan panjang:</label>
+        <input type="number" name="a" required>
+        <br>
+        <label for="">Masukkan lebar:</label>
+        <input type="number" name="b" required>
+        <br>
+        <label for="">Pilih bentuk:</label>
+        <select name="bentuk" required>
+            <option value="persegi">Persegi</option>
+            <option value="segitiga">Segitiga</option>
+            <option value="lingkaran">Lingkaran</option>
+        </select>
+        <br>
+        <button type="submit">Hitung</button>
+    </form>
+    {% if luas is not none and keliling is not none %}
+        <h2>Luas: {{ luas }}</h2>
+        <h2>Keliling: {{ keliling }}</h2>
+    {% endif %}
+</body>
+</html>

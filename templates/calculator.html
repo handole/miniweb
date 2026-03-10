@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <div class="">
+        <form id="calculator-form" method="POST">
+            <input type="number" name="a" placeholder="Masukkan angka pertama">
+            <input type="number" name="b" placeholder="Masukkan angka kedua">
+            <select name="operation">
+                <option name="add" value="add">Tambah</option>
+                <option name="subtract" value="subtract">Kurang</option>
+                <option name="multiply" value="multiply">Kali</option>
+                <option name="divide" value="divide">Bagi</option>
+            </select>
+            <button type="submit">Hitung</button>
+        </form>
+        <h2 id="result"><b>{{ result }}</b></h2>
+    </div>
+</body>
+</html>
