@@ -1,25 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>About Wayne</title>
-    <link rel="stylesheet" href="/static/style.css">
-</head>
-<body>
-    <div class="card">
-        <h1>About Wayne 🚀</h1>
+{% extends "base.html" %}
+
+{% block title %}About Wayne{% endblock %}
+
+{% block content_header %}
+    <h1>About Wayne 🚀</h1>
+    <p>Learn more about the developer behind this project.</p>
+{% endblock %}
+
+{% block content %}
+    <div class="card" style="max-width: 600px; margin: 0; text-align: left;">
         <p>
             <strong>Wayne</strong> is a software developer with a passion
-            for creating modern and scalable web applications.
+            for creating modern and scalable web applications. He enjoys learning new technologies and continuously improving his skills.
         </p>
-        <p>
-            He enjoys learning new technologies and continuously improving
-            his skills.
-        </p>
-        <span class="badge">Software Developer</span>
-        <p>Ke About <a href="/">Home</a></p>
-        <p>Ke Profile <a href="/profile/Wayne">Wayne</a></p>
-        <p>Ke Input Form <a href="/input-form">Input Form</a></p>
+        <span class="badge" style="margin-top: 20px;">Software Developer</span>
     </div>
-</body>
-</html>
+{% endblock %}

@@ -1,30 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Calculator</title>
-</head>
-<body>
-    <h1>Mencari Luas dan Keliling</h1>
-    <form method="POST">
-        <label for="">Masukkan panjang:</label>
-        <input type="number" name="a" required>
-        <br>
-        <label for="">Masukkan lebar:</label>
-        <input type="number" name="b" required>
-        <br>
-        <label for="">Pilih bentuk:</label>
-        <select name="bentuk" required>
-            <option value="persegi">Persegi</option>
-            <option value="segitiga">Segitiga</option>
-            <option value="lingkaran">Lingkaran</option>
-        </select>
-        <br>
-        <button type="submit">Hitung</button>
-    </form>
-    {% if luas is not none and keliling is not none %}
-        <h2>Luas: {{ luas }}</h2>
-        <h2>Keliling: {{ keliling }}</h2>
-    {% endif %}
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Hitung Luas & Keliling{% endblock %}
+
+{% block content_header %}
+    <h1>📐 Hitung Luas dan Keliling</h1>
+    <p>Kalkulator sederhana untuk berbagai bentuk geometri.</p>
+{% endblock %}
+
+{% block content %}
+    <div class="card" style="max-width: 400px; margin: 0;">
+        <form method="POST" class="link-group">
+            <div class="form-group">
+                <label for="a">Masukkan Panjang / Jari-jari</label>
+                <input type="number" id="a" name="a" required>
+            </div>
+            <div class="form-group">
+                <label for="b">Masukkan Lebar / Tinggi (abaikan untuk lingkaran)</label>
+                <input type="number" id="b" name="b">
+            </div>
+            <div class="form-group">
+                <label for="bentuk">Pilih Bentuk</label>
+                <select name="bentuk" id="bentuk" required style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
+                    <option value="persegi">Persegi Panjang</option>
+                    <option value="segitiga">Segitiga</option>
+                    <option value="lingkaran">Lingkaran</option>
+                </select>
+            </div>
+            <button type="submit">Hitung</button>
+        </form>
+
+        {% if luas is not none and keliling is not none %}
+            <div class="badge" style="margin-top: 20px; font-size: 1.1rem; width: 100%; text-align: center;">
+                Luas: {{ luas }} | Keliling: {{ keliling }}
+            </div>
+        {% elif error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+    </div>
+{% endblock %}

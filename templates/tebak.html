@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Game Tebak Angka{% endblock %}
+
+{% block content_header %}
+    <h1>🎮 Game Tebak Angka</h1>
+    <p>Coba tebak angka rahasia antara 1 sampai 20!</p>
+{% endblock %}
+
+{% block content %}
+    <div class="card" style="max-width: 400px; margin: 0;">
+        <form method="POST" class="link-group">
+            <div class="form-group">
+                <label for="tebakan">Masukkan tebakan Anda (1-20):</label>
+                <input type="number" id="tebakan" name="tebakan" min="1" max="20" required>
+            </div>
+            <button type="submit">Tebak</button>
+        </form>
+        {% if pesan %}
+            <div class="badge" style="margin-top: 20px; font-size: 1.1rem; width: 100%; text-align: center;">
+                {{ pesan }}
+            </div>
+            {% if "Selamat" in pesan %}<p style="margin-top: 10px;"><a href="/tebak" class="btn-link">Main Lagi?</a></p>{% endif %}
+        {% endif %}
+    </div>
+{% endblock %}

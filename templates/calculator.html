@@ -1,24 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Calculator</title>
-</head>
-<body>
-    <h1>Calculator</h1>
-    <div class="">
-        <form id="calculator-form" method="POST">
-            <input type="number" name="a" placeholder="Masukkan angka pertama">
-            <input type="number" name="b" placeholder="Masukkan angka kedua">
-            <select name="operation">
-                <option name="add" value="add">Tambah</option>
-                <option name="subtract" value="subtract">Kurang</option>
-                <option name="multiply" value="multiply">Kali</option>
-                <option name="divide" value="divide">Bagi</option>
-            </select>
+{% extends "base.html" %}
+
+{% block title %}Calculator{% endblock %}
+
+{% block content_header %}
+    <h1>🧮 Simple Calculator</h1>
+    <p>Lakukan operasi aritmatika dasar dengan mudah.</p>
+{% endblock %}
+
+{% block content %}
+    <div class="card" style="max-width: 400px; margin: 0;">
+        <form id="calculator-form" method="POST" class="link-group">
+            <div class="form-group">
+                <label for="a">Angka Pertama</label>
+                <input type="number" id="a" name="a" placeholder="Masukkan angka pertama" required>
+            </div>
+            <div class="form-group">
+                <label for="b">Angka Kedua</label>
+                <input type="number" id="b" name="b" placeholder="Masukkan angka kedua" required>
+            </div>
+            <div class="form-group">
+                <label for="operation">Operasi</label>
+                <select name="operation" id="operation" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
+                    <option value="add">Tambah</option>
+                    <option value="subtract">Kurang</option>
+                    <option value="multiply">Kali</option>
+                    <option value="divide">Bagi</option>
+                </select>
+            </div>
             <button type="submit">Hitung</button>
         </form>
-        <h2 id="result"><b>{{ result }}</b></h2>
+        {% if result is not none %}
+            <div class="badge" style="margin-top: 20px; font-size: 1.1rem; width: 100%; text-align: center;">Hasil: {{ result }}</div>
+        {% endif %}
     </div>
-</body>
-</html>

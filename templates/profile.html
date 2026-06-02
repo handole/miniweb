@@ -1,21 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Profile Page</title>
-    <link rel="stylesheet" href="/static/style.css">
-</head>
-<body>
-    <div class="profile-card">
-        <h1>Profile of {{ nama }}</h1>
-        <p>Welcome to the profile page of {{ nama }}. Here you can find more information about them.</p>
-        <p>{{ nama }} has {{ umur }} year's old.</p>
-        <p>With address in {{ alamat }}.</p>
-        <p>Ke Home <a href="/">Home</a></p>
-        <p>Ke Profile <a href="/profile/Wayne">Wayne</a></p>
-        <p>Ke About <a href="/about">About Wayne</a></p>
-        <p>Ke Input Form <a href="/input-form">Input Form</a></p>
-    </div>
+{% extends "base.html" %}
 
-</body>
-</html>
+{% block title %}Profile Page{% endblock %}
+
+{% block content_header %}
+    <h1>👤 User Profile</h1>
+    <p>Informasi mendetail mengenai identitas pengguna.</p>
+{% endblock %}
+
+{% block content %}
+    <div class="profile-card" style="margin: 0; text-align: left;">
+        <div class="badge" style="margin-bottom: 20px;">Personal Info</div>
+        <h1>{{ nama }}</h1>
+        <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+        {% if umur %}
+            <p><strong>Age:</strong> {{ umur }} years old</p>
+        {% else %}
+            <p><strong>Age:</strong> Not specified</p>
+        {% endif %}
+        {% if alamat %}
+            <p><strong>Address:</strong> {{ alamat }}</p>
+        {% else %}
+            <p><strong>Address:</strong> Not specified</p>
+        {% endif %}
+        <p style="margin-top: 20px; color: #777;">Welcome to your personalized profile space. All data shown here is retrieved from your current session.</p>
+    </div>
+{% endblock %}

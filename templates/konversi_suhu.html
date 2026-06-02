@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Konversi Suhu{% endblock %}
+
+{% block content_header %}
+    <h1>🌡️ Konversi Suhu</h1>
+    <p>Alat ukur suhu presisi untuk kebutuhan kalkulasi Anda.</p>
+{% endblock %}
+
+{% block content %}
+    <div class="card">
+        <form method="post" class="link-group">
+            <div class="form-group">
+                <label for="suhu">Masukkan Nilai Suhu</label>
+                <input type="number" id="suhu" name="suhu" required>
+            </div>
+            <div class="form-group">
+                <label for="konversi">Pilih Tipe Konversi</label>
+                <select name="konversi" id="konversi" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
+                    <option value="celcius-fahrenheit">Celsius ke Fahrenheit</option>
+                    <option value="fahrenheit-celcius">Fahrenheit ke Celsius</option>
+                    <option value="celcius-kelvin">Celsius ke Kelvin</option>
+                    <option value="kelvin-celcius">Kelvin ke Celsius</option>
+                    <option value="fahrenheit-kelvin">Fahrenheit ke Kelvin</option>
+                    <option value="kelvin-fahrenheit">Kelvin ke Fahrenheit</option>
+                </select>
+            </div>
+            <button type="submit">Proses Konversi</button>
+        </form>
+        
+        {% if nilai is not none %}
+            <div class="badge" style="margin-top: 20px; font-size: 1.1rem; width: 100%; text-align: center;">Hasil: {{ nilai }}</div>
+        {% elif error %}
+            <p class="error">{{ error }}</p>
+        {% endif %} 
+    </div>
+{% endblock %}

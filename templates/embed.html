@@ -1,23 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Embedded Page</title>
-    <link rel="stylesheet" href="/static/style.css">
-</head>
-<body>
-    <div class="container">
-        <h2>Welcome to the Embedded Page!</h2>
-        <p>This page demonstrates how to embed an image using Flask and HTML.</p>
+{% extends "base.html" %}
+
+{% block title %}Image Gallery{% endblock %}
+
+{% block content_header %}
+    <h1>🖼️ Image Gallery</h1>
+    <p>Lihat koleksi gambar menarik di sini.</p>
+{% endblock %}
+
+{% block content %}
+    <div class="card" style="max-width: 800px; margin: 0;">
+        <h3>Gambar Contoh</h3>
+        <p style="margin-bottom: 20px;">Gambar ini disajikan dari folder statis.</p>
+        <img src="/static/image/bumblebee.jpg" alt="Embedded Image" class="embedded-image" style="width: 100%; height: auto;">
     </div>
-    <div class="container">    
-        <img src="/static/image/bumblebee.jpg" alt="Embedded Image" class="embedded-image">
-    </div>
-    <div class="container">
-        <p>Ke Home <a href="/">Home</a></p>
-        <p>Ke Profile <a href="/profile/Wayne">Wayne</a></p>
-        <p>Ke About <a href="/about">About Wayne</a></p>
-        <p>Ke Input Form <a href="/input-form">Input Form</a></p>
-    </div>
-</body> 
-</html>
+{% endblock %}

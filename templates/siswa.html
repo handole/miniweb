@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAFTAR SISWA</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Wayne's Dev</h2>
+            </div>
+            <nav class="sidebar-menu">
+                <a href="/">🏠 Dashboard</a>
+                <a href="/profile/Wayne">👤 Profile</a>
+                <a href="/about">ℹ️ About Me</a>
+                <a href="/siswa" class="active">👨‍🎓 Data Siswa</a>
+                <a href="/input-form">📝 Form Input</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="content-header">
+                <h1>👨‍🎓 Manajemen Data Siswa</h1>
+                <p>Tambah dan lihat daftar siswa yang terdaftar.</p>
+            </header>
+
+            <div class="card">
+                <h3>Tambah Siswa Baru</h3>
+                <form method="POST" class="link-group" style="margin-top: 15px;">
+                    <div class="form-group">
+                        <label for="nama">Nama Lengkap</label>
+                        <input type="text" id="nama" name="nama" placeholder="Masukkan nama siswa..." required>
+                    </div>
+                    <button type="submit">Tambah ke Daftar</button>
+                </form>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr><th>Nama Siswa</th></tr>
+                    </thead>
+                    <tbody>
+                        {% for siswa in daftar_siswa %}
+                            <tr><td>{{ siswa }}</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
