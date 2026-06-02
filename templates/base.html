@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Wayne's Website{% endblock %}</title>
+    <link rel="stylesheet" href="/static/style.css">
+    {% block head_extra %}{% endblock %}
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Wayne's Dev</h2>
+            </div>
+            <nav class="sidebar-menu">
+                <a href="/" class="{% if active_page == 'dashboard' %}active{% endif %}">🏠 Dashboard</a>
+                <a href="/profile/Wayne" class="{% if active_page == 'profile' %}active{% endif %}">👤 Profile</a>
+                <a href="/about" class="{% if active_page == 'about' %}active{% endif %}">ℹ️ About Me</a>
+                <a href="/siswa" class="{% if active_page == 'siswa' %}active{% endif %}">👨‍🎓 Data Siswa</a> 
+                <a href="/penduduk" class="{% if active_page == 'penduduk' %}active{% endif %}">⚖️ Data Penduduk</a>
+                <a href="/input-form" class="{% if active_page == 'input-form' %}active{% endif %}">📝 Form Input</a>
+                <a href="/calculator" class="{% if active_page == 'calculator' %}active{% endif %}">🧮 Calculator</a>
+                <a href="/konversi-suhu" class="{% if active_page == 'konversi-suhu' %}active{% endif %}">🌡️ Konversi Suhu</a>
+                <a href="/bentuk" class="{% if active_page == 'bentuk' %}active{% endif %}">📐 Hitung Luas</a>
+                <a href="/tebak" class="{% if active_page == 'tebak' %}active{% endif %}">🎮 Game Tebak Angka</a>
+                <a href="/embed" class="{% if active_page == 'embed' %}active{% endif %}">🖼️ Image Gallery</a>
+                <a href="/video" class="{% if active_page == 'video' %}active{% endif %}">🎬 Video Player</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="content-header">
+                {% block content_header %}
+                    <h1>Welcome!</h1>
+                    <p>This is a generic header. Override in child templates.</p>
+                {% endblock %}
+            </header>
+
+            {% block content %}{% endblock %}
+
+            <footer class="dashboard-footer">
+                <p>&copy; 2026 Wayne's Website - Built with Passion</p>
+            </footer>
+        </main>
+    </div>
+</body>
+</html>
