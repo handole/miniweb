@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Simbol</title>
+</head>
+<body>
+    <form method="POST">
+        <label for="simbol">Masukkan Simbol:</label>
+        <input type="text" id="simbol" name="simbol" required>
+        <label for="jumlah">Masukkan Jumlah:</label>
+        <input type="number" id="jumlah" name="jumlah" required>
+        <button type="submit">Submit</button>
+    </form>
+    <br>
+    <pre>
+    {% for baris in hasil %}
+    {{ baris }}
+    {% endfor %}
+    </pre>
+</body>
+</html>
