@@ -3,9 +3,9 @@
 {% block title %}Input Form{% endblock %}
 
 {% block head_extra %}
- <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        document.getElementById("input-form").addEventListener("submit", function(event) {
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("input-form").addEventListener("submit", function (event) {
             event.preventDefault(); // cegah submit dulu
             let valid = true;
             let nama = document.getElementById("nama").value;
@@ -15,40 +15,41 @@
             // Reset error (assuming error spans exist, if not, they need to be added)
             document.querySelectorAll(".error-message").forEach(e => e.innerText = "");
 
-            if(nama === "") {
+            if (nama === "") {
                 // Example: document.getElementById("error-nama").innerText = "Nama wajib diisi!";
                 valid = false;
             }
 
-            if(umur === "") {
+            if (umur === "") {
                 // Example: document.getElementById("error-umur").innerText = "Umur wajib diisi!";
                 valid = false;
             }
 
-            if(alamat === "") {
+            if (alamat === "") {
                 // Example: document.getElementById("error-alamat").innerText = "Alamat wajib diisi!";
                 valid = false;
             }
 
-            if(valid) {     
+            if (valid) {
                 document.getElementById("popup").style.display = "flex";
                 this.reset(); // kosongkan form
-            </div>
+            </div >
         });
     });
 
     function closePopup() {
         document.getElementById("popup").style.display = "none";
     }
- </script>
+</script>
 {% endblock %}
 
 {% block content_header %}
-    <h1>📝 Input Data Profil</h1>
-    <p>Lengkapi form di bawah untuk memperbarui informasi data diri.</p>
+<h1>📝 Input Data Profil</h1>
+<p>Lengkapi form di bawah untuk memperbarui informasi data diri.</p>
 {% endblock %}
 
 {% block content %}
+<div class="stats-grid" style="justify-content: center;">
     <div class="card" style="max-width: 600px; margin: 0;">
         <form id="input-form" action="/input-form" method="post">
             <div class="form-group">
@@ -74,4 +75,5 @@
             <button onclick="closePopup()">OK</button>
         </div>
     </div>
+</div>
 {% endblock %}

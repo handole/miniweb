@@ -8,6 +8,7 @@
 {% endblock %}
 
 {% block content %}
+<div class="stats-grid" style="justify-content: center;">
     <div class="card" style="max-width: 400px; margin: 0;">
         <form method="POST" class="link-group">
             <div class="form-group">
@@ -23,4 +24,5 @@
             {% if "Selamat" in pesan %}<p style="margin-top: 10px;"><a href="/tebak" class="btn-link">Main Lagi?</a></p>{% endif %}
         {% endif %}
     </div>
+</div>
 {% endblock %}

@@ -3,14 +3,17 @@
 {% block title %}Image Gallery{% endblock %}
 
 {% block content_header %}
-    <h1>🖼️ Image Gallery</h1>
-    <p>Lihat koleksi gambar menarik di sini.</p>
+<h1>🖼️ Image Gallery</h1>
+<p>Lihat koleksi gambar menarik di sini.</p>
 {% endblock %}
 
 {% block content %}
+<div class="stats-grid">
     <div class="card" style="max-width: 800px; margin: 0;">
         <h3>Gambar Contoh</h3>
         <p style="margin-bottom: 20px;">Gambar ini disajikan dari folder statis.</p>
-        <img src="/static/image/bumblebee.jpg" alt="Embedded Image" class="embedded-image" style="width: 100%; height: auto;">
+        <img src="/static/image/bumblebee.jpg" alt="Embedded Image" class="embedded-image"
+            style="width: 100%; height: auto;">
     </div>
+</div>
 {% endblock %}
