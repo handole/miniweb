@@ -1,26 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Home - Wayne's Website</title>
-    <link rel="stylesheet" href="/static/style.css">
-</head>
-<body>
-    <div class="container">
-        <h1>Welcome to Wayne's Website!</h1>
-        <p>
-            Hello! I'm Wayne, a software developer passionate about building
-            modern web applications. Feel free to explore my site and learn
-            more about me.
-        </p>
-        
-        <p>&copy; 2024 Wayne's Website</p>
-    </div>
-    <div class="container">
-        <p>Ke Profile <a href="/profile/Wayne">Wayne</a></p> 
-        <p>Ke About <a href="/about"><br />About Wayne</a></p>
-        <p>Ke Input Form <a href="/input-form"> <br />Input Form</a></p>
-        <p>Ke Embedded Page <a href="/embed">Embedded Page</a></p>
-    </div>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Wayne's Website{% endblock %}
+
+{% block content_header %}
+    <h1>Welcome Back, Wayne! 🚀</h1>
+    <p>Overview of your modern web projects and tools.</p>
+{% endblock %}
+
+{% block content %}
+    <!-- Features Grid -->
+    <section class="stats-grid">
+        <div class="card">
+            <h3>🧮 Tools & Utility</h3>
+            <div class="link-group">
+                <a href="/calculator" class="btn-link">Calculator</a>
+                <a href="/konversi-suhu" class="btn-link">Konversi Suhu</a>
+                <a href="/bentuk" class="btn-link">Hitung Luas</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>🎮 Entertainment</h3>
+            <div class="link-group">
+                <a href="/tebak" class="btn-link">Game Tebak Angka</a>
+                <a href="/embed" class="btn-link">Image Gallery</a>
+                <a href="/video" class="btn-link">Video Player</a>
+            </div>
+        </div>
+    </section>
+{% endblock %}
